@@ -1,0 +1,11 @@
+.form, .header, .input-form, .footer{
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: auto;
+    
+    justify-items: center;
+}
+
+.footer{
+    grid-template-rows: 100%;
+}

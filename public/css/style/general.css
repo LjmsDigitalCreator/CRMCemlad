@@ -1,0 +1,238 @@
+/* Variables */
+:root{
+    
+    /* Primary */
+    --main-blue: #2C74C4;
+    --light-blue: #74B1F4;
+    --shadow-blue: #0D4B8F;
+    
+    /* Secondary */
+    --main-yellow: #2C74C4;
+    --light-yellow: #74B1F4;
+    --shadow-yellow: #0D4B8F;
+    
+    /* Accions */
+    --positive: #1EFF85;
+    --negative: #F85E5E;
+    
+    /* Backgrounds */
+    --white: #FFFFFF;
+    --gray: #F5F5F5;
+    --dark-bg: #244A74;
+    
+    /* Black & White */
+    --shadow-gray: #ECECEC;
+    --black: #2C3031;
+    
+    /* Text */
+    --text-blue: #2C74C4;
+    --text-blue-gray: #384C62;
+    --text-gray: #6A6A6A;
+
+    /* Spacing */
+    --unit: 16px;
+    --unit2: 32px;
+    --unit3: 64px;
+    /* Spacing */
+
+}
+/* Variables */
+
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Asap:ital@0;1&display=swap');
+
+body{
+    font-family: 'Asap', sans-serif;
+}
+
+h1{
+    font-size: 32px;
+}
+
+h2, .login-text{
+    font-size: 24px;
+}
+
+h3{
+    font-size: 20px;
+}
+
+p{
+    font-size: 16px;
+}
+/* Fonts */
+
+/* Text Color */
+.text-blue{
+    color: var(--text-blue);
+}
+
+.text-standar{
+    color: var(--text-blue-gray);
+}
+
+.text-gray{
+    color: var(--text-gray);
+}
+
+.text-white{
+    color: var(--white);
+}
+/* Text Color */
+
+/* Layouts */
+body{
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: auto;
+}
+/* Layouts */
+
+/* Text align */
+
+.text-center{
+    text-align: center;
+}
+
+.text-right{
+    text-align: right;
+}
+
+.text-left{
+    text-align: left;
+}
+
+.text-justify{
+    text-align: justify;
+}
+
+/* Text align */
+
+/* Divs align */
+
+.justify-center{
+    justify-self: center;
+}
+
+/* Divs align */
+
+/* Grids */
+
+.grid{
+    display: grid;
+}
+
+/* Grids */
+
+body
+{
+    background-color: var(--white);
+    overflow-x: hidden;
+}
+
+main{
+    position: relative;
+}
+
+a{
+    text-decoration: none;
+}
+
+input, select, textarea, button{
+    border-style: none;
+    border: 1px solid black;
+    border-radius: 10px;
+
+    box-shadow: 0px 5px 5px var(--shadow-gray);
+}
+
+button{
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+nav{
+    background-color: var(--main-blue);
+}
+
+.unit{
+    margin-top: var(--unit);
+}
+
+.unit2{
+    margin-top: var(--unit2);
+}
+
+.unit3{
+    margin-top: var(--unit3);
+}
+
+.icon-option{
+    width: 64px;
+}
+
+.icon-option2{
+    width: 48px;
+}
+
+.content, .card{
+    margin: var(--unit);
+    padding: var(--unit);
+}
+
+.content{
+    background-color: var(--gray);
+}
+
+.card-content{
+    max-height: 367px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    width: 100%;
+}
+
+.card{
+    width: 90%;
+    height: 48px;
+    background-color: var(--light-blue);
+}
+
+.nav-option, .content, .card{
+    border-radius: 5px;
+    box-shadow: 0px 5px 10px var(--shadow-gray);
+}
+
+.inputs{
+    width: 140px;
+}
+
+.inputs-form{
+    width: 120px;
+}
+
+.btn-form{
+    width: 120px;
+
+    background-color: var(--main-blue);
+    color: var(--white);
+}
+
+.nav-small{
+    width: 144px;
+}
+
+.whatsapp{
+    width: 60px;
+    height: 60px;
+
+    background-color: var(--positive);
+    border-radius: 60px;
+
+    position: sticky;
+    /*z-index: 1;*/
+
+    left: 100%;
+    top: 90%;
+
+}
