@@ -1,21 +1,25 @@
-<?php include('../components/headermodules.php') ?>
+<?php
+
+session_start();
+include('../components/headermodules.php');
+
+?>
 <body>
-    <nav class="nav">
-        <div><a href=""><img class="icon-option" src="../../public/img/logo-cemlad.jpeg" alt=""></a></div>
-        <div><a href=""><img class="icon-option" src="../../public/img/logo-cemlad.jpeg" alt=""></a></div>
-        <div><a href=""><img class="icon-option" src="../../public/img/logo-cemlad.jpeg" alt=""></a></div>
-        <div><a href=""><img class="icon-option" src="../../public/img/logo-cemlad.jpeg" alt=""></a></div>
-    </nav>
+    <?php if($_SESSION['rol'] == 'student'){ 
+        include('../components/nav.php');
+    ?>
 
-    <main>
+        <main>
 
-        <?php include('../components/whatsapp.php') ?>
+            <?php include('../components/whatsapp.php') ?>
 
-        <section class="content unit">
-            <h2 class="text-center">BIENVENIDA</h2>
-            <p class="text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio, beatae nisi. Modi cum, aspernatur laudantium, distinctio possimus sapiente deserunt ea ab, libero nulla quasi voluptate. Necessitatibus modi quod quasi! Repudiandae.</p>
-        </section>
-    </main>
+            <section class="content unit">
+                <h2 class="text-center">BIENVENIDA</h2>
+                <p class="text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio, beatae nisi. Modi cum, aspernatur laudantium, distinctio possimus sapiente deserunt ea ab, libero nulla quasi voluptate. Necessitatibus modi quod quasi! Repudiandae.</p>
+            </section>
+        </main>
+    
+    <?php }else{ include('../components/accessdenied.php'); } ?>
 
 </body>
 </html>

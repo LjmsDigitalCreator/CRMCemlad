@@ -13,6 +13,8 @@ echo '
         <link rel="stylesheet" href="../../public/css/style/index.css">
         <link rel="stylesheet" href="../../public/css/layout/index-layout.css">
         <link rel="stylesheet" href="../../public/css/layout/general-layout.css">
+        
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     </head>
 ';
 

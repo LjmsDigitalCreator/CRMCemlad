@@ -5,13 +5,10 @@ include('../components/headermodules.php')
 
 ?>
 <body>
-    <?php if($_SESSION['rol'] == 'admin' || $_SESSION['rol'] == 'root'){ ?>
-        <nav class="nav">
-            <div><a href=""><img class="icon-option" src="../../public/img/logo-cemlad.jpeg" alt=""></a></div>
-            <div><a href=""><img class="icon-option" src="../../public/img/logo-cemlad.jpeg" alt=""></a></div>
-            <div><a href=""><img class="icon-option" src="../../public/img/logo-cemlad.jpeg" alt=""></a></div>
-            <div><a href=""><img class="icon-option" src="../../public/img/logo-cemlad.jpeg" alt=""></a></div>
-        </nav>
+    <?php if($_SESSION['rol'] == 'admin' || $_SESSION['rol'] == 'root'){ 
+        include('../components/nav.php');
+    ?>
+        
 
         <main>
             <section class="content unit">

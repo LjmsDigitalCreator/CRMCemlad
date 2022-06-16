@@ -50,13 +50,13 @@
                     <label class="login-text text-standar" for="">Carrera</label>
                     <select class="inputs" name="career" id="">
                         <option value="1">Ninguna</option>
-                        <option value="2">Guía Nacional de Turismo</option>
-                        <option value="3">Tecnología Superior en Administración</option>
-                        <option value="4">Tecnología Superior en Contabilidad</option>
-                        <option value="5">Tecnología Superior en Marketing</option>
-                        <option value="6">Tecnología Superior en Estética Integral</option>
-                        <option value="7">Tecnología Superior en Desarrollo de Software</option>
-                        <option value="8">Tecnología Superior en Teología Pastoral</option>
+                        <option value="2">Gui&#769;a Nacional de Turismo</option>
+                        <option value="3">Tecnologi&#769;a Superior en Administracio&#769;n</option>
+                        <option value="4">Tecnologi&#769;a Superior en Contabilidad</option>
+                        <option value="5">Tecnologi&#769;a Superior en Marketing</option>
+                        <option value="6">Tecnologi&#769;a Superior en Este&#769;tica Integral</option>
+                        <option value="7">Tecnologi&#769;a Superior en Desarrollo de Software</option>
+                        <option value="8">Tecnologi&#769;a Superior en Teologi&#769;a Pastoral</option>
                     </select>
                 </div>
 

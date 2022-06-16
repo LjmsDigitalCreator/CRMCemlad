@@ -37,14 +37,18 @@
                 <button class="btn-form unit3" type="submit">Ingresar</button>
             </form>
 
-            <?php if($_GET['failed'] == 1){ ?>
-            <div class="error-card justify-center unit2">
-                <p class="text-center text-white">Usuario o clave incorrectos</p>
-            </div>
-            <?php } ?>
-
+            
         </section>
-        <footer class="footer unit3">
+        
+        <?php if($_GET['failed'] == 1){ ?>
+            <div class="grid">
+                <div class="error-card justify-center unit2">
+                    <p class="text-center text-white">Usuario o clave incorrectos</p>
+                </div>
+            </div>
+        <?php } ?>
+
+        <footer class="footer unit2">
             <div>
                 <a class="text-standar" href="../CRMCemlad/app/view/signup.php"><small>Quiero registrarme</small></a>
                 <a class="text-standar" href="/"><small>Continuar sin una cuenta</small></a>

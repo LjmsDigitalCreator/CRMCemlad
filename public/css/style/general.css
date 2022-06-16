@@ -7,9 +7,9 @@
     --shadow-blue: #0D4B8F;
     
     /* Secondary */
-    --main-yellow: #2C74C4;
-    --light-yellow: #74B1F4;
-    --shadow-yellow: #0D4B8F;
+    --main-yellow: #F4A424;
+    --light-yellow: #FAD8A2;
+    --shadow-yellow: #F2BF09;
     
     /* Accions */
     --positive: #1EFF85;
@@ -22,6 +22,7 @@
     
     /* Black & White */
     --shadow-gray: #ECECEC;
+    --shadow-gray-t: #ececec44;
     --black: #2C3031;
     
     /* Text */
@@ -78,6 +79,14 @@ p{
 .text-white{
     color: var(--white);
 }
+
+.text-positive{
+    color: var(--positive);
+}
+
+.text-negative{
+    color: var(--negative);
+}
 /* Text Color */
 
 /* Layouts */
@@ -114,6 +123,10 @@ body{
     justify-self: center;
 }
 
+.align-center{
+    align-self: center;
+}
+
 /* Divs align */
 
 /* Grids */
@@ -122,7 +135,43 @@ body{
     display: grid;
 }
 
+.gridButtons{
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    grid-template-rows: 100%;
+}
+
+.grid-client{
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: auto;
+}
+
 /* Grids */
+
+/* Margin & Padding */
+
+.margin{
+    margin: var(--unit);
+}
+
+.padding{
+    padding: var(--unit);
+}
+
+.padding-rl{
+    padding: 0px var(--unit);
+}
+
+/* Margin & Padding */
+
+/* Background */
+
+.bg-blue-light{
+    background-color: var(--light-blue);
+}
+
+/* Background */
 
 body
 {
@@ -176,7 +225,7 @@ nav{
     width: 48px;
 }
 
-.content, .card, .error-card{
+.content, .card, .error-card, .modal{
     margin: var(--unit);
     padding: var(--unit);
 }
@@ -198,6 +247,24 @@ nav{
     background-color: var(--light-blue);
 }
 
+.card-career, .grid-client{
+    width: 95%;
+    height: auto;
+
+    margin-bottom: var(--unit2);
+    background-color: var(--light-blue);
+}
+
+.modal{
+
+    width: 70%;
+    height: auto;
+
+    z-index: 2;
+
+    background-color: var(--dark-bg);
+}
+
 .error-card{
     width: 50%;
     height: 48px;
@@ -205,7 +272,7 @@ nav{
     background-color: var(--negative);
 }
 
-.nav-option, .content, .card, .error-card{
+.nav-option, .content, .card, .error-card, .card-career{
     border-radius: 5px;
     box-shadow: 0px 5px 10px var(--shadow-gray);
 }
@@ -241,4 +308,77 @@ nav{
     left: 100%;
     top: 90%;
 
+}
+
+.button-option{
+    
+    background-color: var(--main-blue);
+
+    border: 1px solid var(--shadow-blue);
+    border-radius: 0px 0px 5px 5px;
+
+    box-shadow: 0px 5px 5px var(--main-blue);
+
+    transition: background-color 0.5s;
+
+}
+
+.button-option:hover{
+    background-color: var(--main-yellow);
+}
+
+.btnPositive, .btnNegative, .btnNeutral{
+    background-color: transparent;
+    border: 1px solid;
+    transition: color 0.5s ease, background-color 0.5s ease;
+}
+
+.btnNeutral{
+    color: var(--white);
+    border-color: var(--white);
+}
+
+.btnPositive{
+    color: var(--positive);
+    border-color: var(--positive);
+    box-shadow: 0px 5px 5px var(--positive);
+}
+
+.btnNegative{
+    color: var(--negative);
+    border-color: var(--negative);
+    box-shadow: 0px 5px 5px var(--negative);
+}
+
+.btnPositive:hover, .btnNegative:hover, .btnNeutral:hover{
+    color: var(--dark-bg);
+    border-color: var(--dark-bg);
+}
+
+.btnNeutral:hover{
+    background-color: var(--white);
+}
+
+.btnPositive:hover{
+    background-color: var(--positive);
+}
+
+.btnNegative:hover{
+    background-color: var(--negative);
+}
+
+.modalDiv{
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 100%;
+    width: 100%;
+    height: 100%;
+
+    position: absolute;
+    z-index: 1;
+
+    justify-content: center;
+    align-content: center;
+
+    background-color: var(--shadow-gray-t);
 }
