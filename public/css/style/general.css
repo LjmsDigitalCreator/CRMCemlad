@@ -213,6 +213,10 @@ nav{
     margin-top: var(--unit2);
 }
 
+.unitb2{
+    margin-bottom: var(--unit2);
+}
+
 .unit3{
     margin-top: var(--unit3);
 }
@@ -424,4 +428,16 @@ nav{
     padding: 5px;
 
     width: 95%;
+}
+
+.noShadows2{
+    box-shadow: none;
+}
+
+.test{
+    background-color: var(--light-blue);
+}
+
+.border{
+    border-radius: 5px;
 }

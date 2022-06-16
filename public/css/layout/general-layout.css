@@ -1,12 +1,22 @@
-.card-career{
+.card-career, .option-test{
     display: grid;
     grid-template-columns: 80% 20%;
     grid-template-rows: auto;
 }
 
+.option-test{
+    width: 50%;
+}
+
 .div-options{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto;
+}
+
+.div-two-options{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     grid-template-rows: auto;
 }
 

@@ -30,7 +30,7 @@ include('../components/headermodules.php');
                         <input name="fileUpload" class="inputs" type="file" required>
                     </div>
 
-                    <button class="btn-form items-columns unit2" id="btn-form-project">Acción formulario</button>
+                    <button class="btn-form items-columns unit2" id="btn-form-project">Registrar proyecto</button>
                 </form>
             </section>
 
