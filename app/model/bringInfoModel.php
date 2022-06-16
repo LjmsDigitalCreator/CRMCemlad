@@ -5,17 +5,19 @@ function queryBringClientInformation($rol){
     include('connection.php');
 
     $query = $mysqli->query("SELECT
-        ID_USER,
-        IFNULL(ID_CAREER, 1) AS ID_CAREER,
-        NAME,
-        IFNULL(SECOND_NAME, '') AS SECOND_NAME,
-        LAST_NAME,
-        IFNULL(SECOND_LAST_NAME, '') AS SECOND_LAST_NAME,
-        EMAIL,
-        PHONE,
-        IFNULL(ALTER_PHONE, '') AS ALTER_PHONE,
+        USER.ID_USER,
+        USER.ID_CAREER,
+        CAREER.CAREER,
+        USER.NAME,
+        IFNULL(USER.SECOND_NAME, '') AS SECOND_NAME,
+        USER.LAST_NAME,
+        IFNULL(USER.SECOND_LAST_NAME, '') AS SECOND_LAST_NAME,
+        USER.EMAIL,
+        USER.PHONE,
+        IFNULL(USER.ALTER_PHONE, '') AS ALTER_PHONE,
         ROL
     FROM USER
+    INNER JOIN CAREER ON CAREER.ID_CAREER = USER.ID_CAREER
     WHERE ROL = '$rol'");
 
     $data = array();
@@ -24,6 +26,7 @@ function queryBringClientInformation($rol){
         array_push($data, [
             'ID_USER'=>$info->ID_USER,
             'ID_CAREER'=>$info->ID_CAREER,
+            'CAREER'=>$info->CAREER,
             'NAME'=>$info->NAME,
             'SECOND_NAME'=>$info->SECOND_NAME,
             'LAST_NAME'=>$info->LAST_NAME,

@@ -10,6 +10,7 @@ function FilterInformation(){
     let nameLastName = $('#nameLastName').val();
     let email = $('#email').val();
     let phone = $('#phone').val();
+    let career = $('#career').val();
 
     $.ajax({
         type: "POST",
@@ -18,6 +19,7 @@ function FilterInformation(){
             nameLastName: nameLastName,
             email: email,
             phone: phone,
+            career: career,
             rol: rol,
         },
         async: true,
@@ -33,7 +35,7 @@ function FilterInformation(){
                 divs += `
                     <div class='grid-client text-white'>
                         <div class="div-options items-columns">
-                            <button class="button-option text-white">
+                            <button class="button-option text-white" onclick="ModalClient('divModalClient${i}', ${i});">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
                                     <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z"/>
                                     <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"/>
@@ -63,6 +65,62 @@ function FilterInformation(){
                         <p class="one-column padding-rl"><strong>Nombre:</strong> ${info[i]['NAME']} ${info[i]['LAST_NAME']}</p>
                         <p class="one-column padding-rl"><strong>Email:</strong> ${info[i]['EMAIL']}</p>
                         <p class="one-column padding-rl"><strong>Teléfono:</strong> ${info[i]['PHONE']}</p>
+                    </div>
+
+                    <div class="" id="divModalClient${i}" style="display: none;">
+                        <div id="modalClient${i}" class="modalClient justify-center align-center padding">
+                            <h2 class="text-center text-white">Datos del cliente</h2>
+                            <input id="infoClientIdUser" type="hidden" value="${info[i]['ID_USER']}">
+
+                            <div class="grid text-white unit">
+                                <label for="infoClientCareer">Carrera</label>
+                                <input class="text-white noShadows" id="infoClientCareer" type="text" value="${info[i]['ID_CAREER']}" disabled>
+                            </div>
+
+                            <div class="grid text-white unit">
+                                <label for="infoClientName">Nombre</label>
+                                <input class="text-white noShadows" id="infoClientName" type="text" value="${info[i]['NAME']}" disabled>
+                            </div>
+
+                            <div class="grid text-white unit">
+                                <label for="infoClientSecondName">Segundo nombre</label>
+                                <input class="text-white noShadows" id="infoClientSecondName" type="text" value="${info[i]['SECOND_NAME']}" disabled>
+                            </div>
+
+                            <div class="grid text-white unit">
+                                <label for="infoClientLastName">Apellido</label>
+                                <input class="text-white noShadows" id="infoClientLastName" type="text" value="${info[i]['LAST_NAME']}" disabled>
+                            </div>
+
+                            <div class="grid text-white unit">
+                                <label for="infoClientSecondLastName">Segundo apellido</label>
+                                <input class="text-white noShadows" id="infoClientSecondLastName" type="text" value="${info[i]['SECOND_LAST_NAME']}" disabled>
+                            </div>
+
+                            <div class="grid text-white unit">
+                                <label for="infoClientEmail">Email</label>
+                                <input class="text-white noShadows" id="infoClientEmail" type="text" value="${info[i]['EMAIL']}" disabled>
+                            </div>
+
+                            <div class="grid text-white unit">
+                                <label for="infoClientPhone">Tele&#769;fono</label>
+                                <input class="text-white noShadows" id="infoClientPhone" type="text" value="${info[i]['PHONE']}" disabled>
+                            </div>
+
+                            <div class="grid text-white unit">
+                                <label for="infoClientAlterPhone">Segundo Tele&#769;fono</label>
+                                <input class="text-white noShadows" id="infoClientAlterPhone" type="text" value="${info[i]['ALTER_PHONE']}" disabled>
+                            </div>
+
+                            <div class="grid text-white unit">
+                                <label for="infoClientRol">Rol</label>
+                                <input class="text-white noShadows" id="infoClientRol" type="text" value="${rol}" disabled>
+                            </div>
+
+                            <div class="grid items-columns justify-center unit">
+                                <button id="btnCloseModal" onclick="CloseModalClient('divModalClient${i}', ${i})" class="btnNegative justify-center">Cerrar</button>
+                            </div>
+                        </div>
                     </div>
                 `;
             }

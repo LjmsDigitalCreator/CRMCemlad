@@ -31,45 +31,50 @@ list.addEventListener('click', ()=>{
     informationList.style.display = 'block';
 });
 
-create.addEventListener('click', ()=>{
-    filter.style.display = 'none';
-
-    if(rol.value == 'project' || rol.value == 'contract'){
-        formProject.style.display = 'block';
-        form.style.display = 'none';
-        formTitle.style.display = 'none';
-        formTitleProject.innerHTML = 'Registrar';
-        btnFormProject.innerHTML = 'Registrar';
-    }else{
-        form.style.display = 'block';
-        formProject.style.display = 'none';
-        formTitleProject.style.display = 'none';
-        formTitle.innerHTML = 'Registrar';
-        btnForm.innerHTML = 'Registrar';
-    }
+if(create != null){
+    create.addEventListener('click', ()=>{
+        filter.style.display = 'none';
     
-    informationList.style.display = 'none';
-});
+        if(rol.value == 'project' || rol.value == 'contract'){
+            formProject.style.display = 'block';
+            form.style.display = 'none';
+            formTitle.style.display = 'none';
+            formTitleProject.innerHTML = 'Registrar';
+            btnFormProject.innerHTML = 'Registrar';
+        }else{
+            form.style.display = 'block';
+            formProject.style.display = 'none';
+            formTitleProject.style.display = 'none';
+            formTitle.innerHTML = 'Registrar';
+            btnForm.innerHTML = 'Registrar';
+        }
+        
+        informationList.style.display = 'none';
+    });
+}
 
-update.addEventListener('click', ()=>{
-    filter.style.display = 'none';
+if(update != null){
+    update.addEventListener('click', ()=>{
+        filter.style.display = 'none';
+    
+        if(rol.value == 'project' || rol.value == 'contract'){
+            formProject.style.display = 'block';
+            form.style.display = 'none';
+            formTitle.style.display = 'none';
+            formTitleProject.innerHTML = 'Actualizar';
+            btnFormProject.innerHTML = 'Actualizar';
+        }else{
+            form.style.display = 'block';
+            formProject.style.display = 'none';
+            formTitleProject.style.display = 'none';
+            formTitle.innerHTML = 'Actualizar';
+            btnForm.innerHTML = 'Actualizar';
+        }
+    
+        informationList.style.display = 'none';
+    });
+}
 
-    if(rol.value == 'project' || rol.value == 'contract'){
-        formProject.style.display = 'block';
-        form.style.display = 'none';
-        formTitle.style.display = 'none';
-        formTitleProject.innerHTML = 'Actualizar';
-        btnFormProject.innerHTML = 'Actualizar';
-    }else{
-        form.style.display = 'block';
-        formProject.style.display = 'none';
-        formTitleProject.style.display = 'none';
-        formTitle.innerHTML = 'Actualizar';
-        btnForm.innerHTML = 'Actualizar';
-    }
-
-    informationList.style.display = 'none';
-});
 
 filterOption.addEventListener('click', ()=>{
     filter.style.display = 'block';

@@ -10,6 +10,12 @@
     grid-template-rows: auto;
 }
 
+.nav-small{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 100%;
+}
+
 .content-columns{
     display: grid;
     grid-column: 1/-1;

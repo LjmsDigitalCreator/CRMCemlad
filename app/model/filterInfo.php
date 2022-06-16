@@ -1,6 +1,6 @@
 <?php
 
-function queryFilterClient($nameLastName, $email, $phone, $rol){
+function queryFilterClient($nameLastName, $email, $phone, $career, $rol){
 
     include('connection.php');
 
@@ -29,6 +29,10 @@ function queryFilterClient($nameLastName, $email, $phone, $rol){
 
     if(isset($phone)){
         $sql .= " AND PHONE LIKE '%$phone%' ";
+    }
+
+    if(isset($career)){
+        $sql .= " AND ID_CAREER = $career ";
     }
 
     $query = $mysqli->query($sql);

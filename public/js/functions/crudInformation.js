@@ -112,3 +112,63 @@ function Delete(id){
     });
 }
 
+function Update(iterator){
+    
+    let infoClientIdUser = document.getElementById(`infoClientIdUser${iterator}`);
+    let infoClientCareer = document.getElementById(`infoClientCareer${iterator}`);
+    let infoClientName = document.getElementById(`infoClientName${iterator}`);
+    let infoClientSecondName = document.getElementById(`infoClientSecondName${iterator}`);
+    let infoClientLastName = document.getElementById(`infoClientLastName${iterator}`);
+    let infoClientSecondLastName = document.getElementById(`infoClientSecondLastName${iterator}`);
+    let infoClientEmail = document.getElementById(`infoClientEmail${iterator}`);
+    let infoClientPhone = document.getElementById(`infoClientPhone${iterator}`);
+    let infoClientAlterPhone = document.getElementById(`infoClientAlterPhone${iterator}`);
+    let infoClientRol = document.getElementById(`infoClientRol${iterator}`);
+
+    let rol = document.getElementById('rol');
+
+    if(infoClientRol.value == 'Estudiante'){
+        rol = 'student';
+    }else if(infoClientRol.value == 'Cliente externo' && infoClientCareer.value != 1){
+        rol = 'student';
+    }else if(infoClientRol.value == 'Cliente externo'){
+        rol = 'prospect';
+    }
+
+    $.ajax({
+        type: "POST",
+        url: "../../app/controller/updateInfo.php",
+        data: {
+            idUser: infoClientIdUser.value,
+            idCareer: infoClientCareer.value,
+            name: infoClientName.value,
+            secondName: infoClientSecondName.value,
+            lastName: infoClientLastName.value,
+            secondLastName: infoClientSecondLastName.value,
+            email: infoClientEmail.value,
+            phone: infoClientPhone.value,
+            alterPhone: infoClientAlterPhone.value,
+            rol: rol,
+        },
+        async: true,
+        success: function (data) {
+            console.log(data);
+            modal.style.display = 'none';
+            divModal.style.display = 'none';
+            divModal.classList.remove = 'modalDiv';
+
+            if(data){
+                ModalSuccessful();
+                BringInformation();
+            }else{
+                ModalFailed();    
+            }
+
+        },
+        error: function (error) {
+            modalText.innerHTML = `Error: ${error}`;
+            ModalFailed();
+        }
+    });
+}
+

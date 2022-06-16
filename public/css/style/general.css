@@ -265,6 +265,16 @@ nav{
     background-color: var(--dark-bg);
 }
 
+.modalClient{
+
+    width: 80%;
+    height: auto;
+
+    z-index: 2;
+
+    background-color: #6a6a6a;
+}
+
 .error-card{
     width: 50%;
     height: 48px;
@@ -293,7 +303,7 @@ nav{
 }
 
 .nav-small{
-    width: 144px;
+    width: 240px;
 }
 
 .whatsapp{
@@ -327,7 +337,7 @@ nav{
     background-color: var(--main-yellow);
 }
 
-.btnPositive, .btnNegative, .btnNeutral{
+.btnPositive, .btnNegative, .btnNeutral, .btnPrimary{
     background-color: transparent;
     border: 1px solid;
     transition: color 0.5s ease, background-color 0.5s ease;
@@ -350,7 +360,13 @@ nav{
     box-shadow: 0px 5px 5px var(--negative);
 }
 
-.btnPositive:hover, .btnNegative:hover, .btnNeutral:hover{
+.btnPrimary{
+    color: var(--main-blue);
+    border-color: var(--main-blue);
+    box-shadow: 0px 5px 5px var(--main-blue);
+}
+
+.btnPositive:hover, .btnNegative:hover, .btnNeutral:hover, .btnPrimary:hover{
     color: var(--dark-bg);
     border-color: var(--dark-bg);
 }
@@ -367,6 +383,10 @@ nav{
     background-color: var(--negative);
 }
 
+.btnPrimary:hover{
+    background-color: var(--main-blue);
+}
+
 .modalDiv{
     display: grid;
     grid-template-columns: 100%;
@@ -381,4 +401,27 @@ nav{
     align-content: center;
 
     background-color: var(--shadow-gray-t);
+}
+
+.modalDivClient{
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 100%;
+    width: 100%;
+    height: 180%;
+
+    position: absolute;
+    z-index: 1;
+
+    justify-content: center;
+    align-content: flex-start;
+
+    background-color: var(--shadow-gray-t);
+}
+
+.noShadows{
+    box-shadow: none;
+    padding: 5px;
+
+    width: 95%;
 }

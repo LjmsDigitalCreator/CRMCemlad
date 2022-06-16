@@ -11,8 +11,6 @@ function BringInformation(){
         async: true,
         success: function (data) {
 
-            console.log(data);
-
             let info = $.parseJSON(data);
 
             $('#information-card').html('');
@@ -20,17 +18,25 @@ function BringInformation(){
             let divs = '';
 
             for(let i = 0; i < info.length; i++){
+
+                let rol = '';
+
+                if(info[i]['ROL'] == 'student'){
+                    rol = 'Estudiante';
+                }else if(info[i]['ROL'] == 'prospect'){
+                    rol = 'Cliente externo';
+                }
                 
                 divs += `
                     <div class='grid-client text-white'>
                         <div class="div-options items-columns">
-                            <button class="button-option text-white">
+                            <button class="button-option text-white" onclick="ModalClient('divModalClient${i}', ${i});">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
                                     <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z"/>
                                     <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"/>
                                 </svg>
                             </button>
-                            <button class="button-option text-white">
+                            <button class="button-option text-white" onclick="ModalClientEdit('divModalClient${i}', ${i})">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
                                     <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
                                     <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
@@ -54,6 +60,74 @@ function BringInformation(){
                         <p class="one-column padding-rl"><strong>Nombre:</strong> ${info[i]['NAME']} ${info[i]['LAST_NAME']}</p>
                         <p class="one-column padding-rl"><strong>Email:</strong> ${info[i]['EMAIL']}</p>
                         <p class="one-column padding-rl"><strong>Teléfono:</strong> ${info[i]['PHONE']}</p>
+                    </div>
+
+                    <div class="" id="divModalClient${i}" style="display: none;">
+                        <div id="modalClient${i}" class="modalClient justify-center align-center padding">
+                            <h2 class="text-center text-white">Datos del cliente</h2>
+                            <input id="infoClientIdUser${i}" type="hidden" value="${info[i]['ID_USER']}">
+
+                            <div class="grid text-white unit">
+                                <label for="infoClientCareer">Carrera</label>
+                                <select class="text-white noShadows" name="infoClientCareer" id="infoClientCareer${i}" disabled>
+                                    <option value="${info[i]['ID_CAREER']}" selected>${info[i]['CAREER']}</option>
+                                    <option value="1">Ninguna</option>
+                                    <option value="2">Gui&#769;a Nacional de Turismo</option>
+                                    <option value="3">Tecnologi&#769;a Superior en Administracio&#769;n</option>
+                                    <option value="4">Tecnologi&#769;a Superior en Contabilidad</option>
+                                    <option value="5">Tecnologi&#769;a Superior en Marketing</option>
+                                    <option value="6">Tecnologi&#769;a Superior en Este&#769;tica Integral</option>
+                                    <option value="7">Tecnologi&#769;a Superior en Desarrollo de Software</option>
+                                    <option value="8">Tecnologi&#769;a Superior en Teologi&#769;a Pastoral</option>
+                                </select>
+                                <input class="text-white noShadows" id="infoClientCareerInput${i}" type="text" value="${info[i]['CAREER']}" disabled>
+                            </div>
+
+                            <div class="grid text-white unit">
+                                <label for="infoClientName">Nombre</label>
+                                <input class="text-white noShadows" id="infoClientName${i}" type="text" value="${info[i]['NAME']}" disabled>
+                            </div>
+
+                            <div class="grid text-white unit">
+                                <label for="infoClientSecondName">Segundo nombre</label>
+                                <input class="text-white noShadows" id="infoClientSecondName${i}" type="text" value="${info[i]['SECOND_NAME']}" disabled>
+                            </div>
+
+                            <div class="grid text-white unit">
+                                <label for="infoClientLastName">Apellido</label>
+                                <input class="text-white noShadows" id="infoClientLastName${i}" type="text" value="${info[i]['LAST_NAME']}" disabled>
+                            </div>
+
+                            <div class="grid text-white unit">
+                                <label for="infoClientSecondLastName">Segundo apellido</label>
+                                <input class="text-white noShadows" id="infoClientSecondLastName${i}" type="text" value="${info[i]['SECOND_LAST_NAME']}" disabled>
+                            </div>
+
+                            <div class="grid text-white unit">
+                                <label for="infoClientEmail">Email</label>
+                                <input class="text-white noShadows" id="infoClientEmail${i}" type="text" value="${info[i]['EMAIL']}" disabled>
+                            </div>
+
+                            <div class="grid text-white unit">
+                                <label for="infoClientPhone">Tele&#769;fono</label>
+                                <input class="text-white noShadows" id="infoClientPhone${i}" type="text" value="${info[i]['PHONE']}" disabled>
+                            </div>
+
+                            <div class="grid text-white unit">
+                                <label for="infoClientAlterPhone">Segundo Tele&#769;fono</label>
+                                <input class="text-white noShadows" id="infoClientAlterPhone${i}" type="text" value="${info[i]['ALTER_PHONE']}" disabled>
+                            </div>
+
+                            <div class="grid text-white unit">
+                                <label for="infoClientRol">Rol</label>
+                                <input class="text-white noShadows" id="infoClientRol${i}" type="text" value="${rol}" disabled>
+                            </div>
+
+                            <div class="form items-columns justify-center unit">
+                                <button id="btnCloseModal" onclick="CloseModalClient('divModalClient${i}', ${i})" class="btnNegative justify-center">Cerrar</button>
+                                <button id="btnActionModal" onclick="Update(${i})" class="btnNeutral justify-center">Actualizar</button>
+                            </div>
+                        </div>
                     </div>
                 `;
             }

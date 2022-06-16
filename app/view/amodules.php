@@ -15,18 +15,18 @@
                 
                 if(isset($_GET['module'])){
                     $module = $_GET['module'];
-                };
+                }
 
                 if(isset($_GET['rol'])){
                     $rol = $_GET['rol'];
-                };
+                }
 
                 echo '<h2 class="text-center">'. $module .'</h2>';
                 echo '<input id="rol" type="hidden" value="'. $rol .'">';
             ?>
-            <div>
-                <nav class="nav nav-option">
-                    <div id="list" class="grid text-white" onclick="BringInformation();">
+            <div class="grid">
+                <nav class="nav-small justify-center nav-option">
+                    <div id="list" class="grid justify-center text-white" onclick="BringInformation();">
                         <p>Listado</p>
                         <svg class="justify-center" xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-list-task" viewBox="0 0 16 16">
                             <path fill-rule="evenodd" d="M2 2.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5V3a.5.5 0 0 0-.5-.5H2zM3 3H2v1h1V3z"/>
@@ -34,20 +34,7 @@
                             <path fill-rule="evenodd" d="M1.5 7a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H2a.5.5 0 0 1-.5-.5V7zM2 7h1v1H2V7zm0 3.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5H2zm1 .5H2v1h1v-1z"/>
                         </svg>
                     </div>
-                    <div id="create" class="grid text-white">
-                        <p>Registrar</p>
-                        <svg class="justify-center" xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-ui-checks" viewBox="0 0 16 16">
-                            <path d="M7 2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5v-1zM2 1a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2H2zm0 8a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2v-2a2 2 0 0 0-2-2H2zm.854-3.646a.5.5 0 0 1-.708 0l-1-1a.5.5 0 1 1 .708-.708l.646.647 1.646-1.647a.5.5 0 1 1 .708.708l-2 2zm0 8a.5.5 0 0 1-.708 0l-1-1a.5.5 0 0 1 .708-.708l.646.647 1.646-1.647a.5.5 0 0 1 .708.708l-2 2zM7 10.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5v-1zm0-5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0 8a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z"/>
-                        </svg>
-                    </div>
-                    <div id="update" class="grid text-white">
-                        <p>Editar</p>
-                        <svg class="justify-center" xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
-                            <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
-                            <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
-                        </svg>
-                    </div>
-                    <div id="filterOption" class="grid text-white">
+                    <div id="filterOption" class="grid justify-center text-white">
                         <p>Buscar</p>
                         <svg class="justify-center" xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
                             <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
@@ -61,19 +48,46 @@
             <section class="content unit" id="filter">
                 <div class="form">
                     <div class="input-form unit2">
-                        <label class="login-text text-standar" for="">Nombre y apellido</label>
+                        <label class="login-text text-standar" for="">Nombre</label>
                         <input id="nameLastName" name="nameLastName" class="inputs" type="text">
                     </div>
 
-                    <div class="input-form unit2">
-                        <label class="login-text text-standar" for="">Email</label>
-                        <input id="email" name="email" class="inputs" type="text">
-                    </div>
+                    <?php
+                    
+                        if(isset($_GET['rol']) && ($_GET['rol'] == "student" || $_GET['rol'] == "prospect")){
+                            echo'
+                            <div class="input-form unit2">
+                                <label class="login-text text-standar" for="">Email</label>
+                                <input id="email" name="email" class="inputs" type="text">
+                            </div>
 
-                    <div class="input-form unit2">
-                        <label class="login-text text-standar" for="">Tele&#769;fono</label>
-                        <input id="phone" name="phone" class="inputs" type="text">
-                    </div>
+                            <div class="input-form unit2">
+                                <label class="login-text text-standar" for="">Tele&#769;fono</label>
+                                <input id="phone" name="phone" class="inputs" type="text">
+                            </div>
+                        ';
+                        }
+
+                        if(isset($_GET['rol']) && $_GET['rol'] == "student"){
+                            echo '
+                            <div class="input-form unit2">
+                                <label class="login-text text-standar" for="">Carrera</label>
+                                <select class="inputs" name="career" id="career">
+                                    <option value="1">Ninguna</option>
+                                    <option value="2">Gui&#769;a Nacional de Turismo</option>
+                                    <option value="3">Tecnologi&#769;a Superior en Administracio&#769;n</option>
+                                    <option value="4">Tecnologi&#769;a Superior en Contabilidad</option>
+                                    <option value="5">Tecnologi&#769;a Superior en Marketing</option>
+                                    <option value="6">Tecnologi&#769;a Superior en Este&#769;tica Integral</option>
+                                    <option value="7">Tecnologi&#769;a Superior en Desarrollo de Software</option>
+                                    <option value="8">Tecnologi&#769;a Superior en Teologi&#769;a Pastoral</option>
+                                </select>
+                            </div>
+                            ';
+                        }
+
+                    ?>
+
                     <button id="btnFilter" class="btn-form items-columns unit2">Filtrar</button>
                 </div>    
             </section>
@@ -133,6 +147,7 @@
         <script src="../../public/js/functions/requestInformation.js"></script>
         <script src="../../public/js/functions/crudInformation.js"></script>
         <script src="../../public/js/functions/filterInformation.js"></script>
+        <script src="../../public/js/functions/showModalClient.js"></script>
         <?php
             echo '
                 <script>
