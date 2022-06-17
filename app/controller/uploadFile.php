@@ -2,7 +2,7 @@
 
 session_start();
 
-include('../model/uploadFileModel.php');
+//include('../model/uploadFileModel.php');
 
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
     if(isset($_POST['fileName']) && isset($_FILES['fileUpload'])){
@@ -24,7 +24,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         $allowedfileExtensions = array('zip', 'txt', 'xls', 'doc', 'docx', 'pdf', 'odt', 'rar');
         
         if (in_array($fileExtension, $allowedfileExtensions)) {
-            $uploadFileDir = $_SERVER['DOCUMENT_ROOT'] . "CRMCEMLAD/public/upload/";
+            $uploadFileDir = $_SERVER['DOCUMENT_ROOT'] . "/CRMCEMLAD/public/upload/";
             $destinyPath = $uploadFileDir . $nameFile;
 
             echo "<h1>". $fileTmpPath ."</h1>";

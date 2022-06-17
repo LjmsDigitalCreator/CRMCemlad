@@ -3,18 +3,20 @@
     include('../components/headermodules.php');
 ?>
 <body>
-    <?php if($_SESSION['rol'] == 'prospect'){ 
-        include('../components/nav.php');
-    ?>
+    <?php include('../components/nav.php'); ?>
         <main>
 
-            <?php include('../components/whatsapp.php') ?>
+            <div class="bg-career">
+                <div class="bar-t">
+                    <h2 class="text-center">Carreras</h2>
+                </div>
+            </div>
             
-            <h2 class="text-center">Mo&#769;dulo</h2>
+            <?php include('../components/whatsapp.php') ?>
 
             <!-- Careers -->
 
-            <section class="content unit" id="list">
+            <section class="content" id="list">
                 <div class="card-content">
                     <div class='grid-client text-white'>
                         <div class="div-two-options items-columns">
@@ -169,7 +171,10 @@
             </section>
         </main>
 
+
+        <?php include('../components/footer.php') ?>
+
         <script src="../../public/js/functions/showOrHide.js"></script>
-    <?php }else{ include('../components/accessdenied.php'); } ?>
+
 </body>
 </html>

@@ -11,9 +11,13 @@ include('../components/headermodules.php');
 
         <main>
 
-        <?php include('../components/whatsapp.php') ?>
-            
-            <h2 class="text-center">Carreras</h2>
+            <div class="bg-project">
+                <div class="bar-t">
+                    <h2 class='text-center'>Proyectos</h2>
+                </div>
+            </div>
+
+            <?php include('../components/whatsapp.php') ?>
 
             <!-- Form view upload files -->
 
@@ -35,6 +39,8 @@ include('../components/headermodules.php');
             </section>
 
         </main>
+
+    <?php include('../components/footer.php') ?>
 
     <?php }else{ include('../components/accessdenied.php'); } ?>
 

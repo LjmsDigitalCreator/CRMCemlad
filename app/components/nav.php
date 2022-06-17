@@ -67,7 +67,7 @@ if($_SESSION['rol'] == 'root'){
         </div>
     </nav>
     ';
-}else if($_SESSION['rol'] == 'prospect'){
+}else{
     echo '
     <nav class="nav">
         <div class="grid">

@@ -10,10 +10,15 @@ include('../components/headermodules.php');
     ?>
 
         <main>
-
-        <?php include('../components/whatsapp.php') ?>
             
-            <h2 class="text-center">Carreras</h2>
+            <div class="bg-career">
+                <div class="bar-t">
+                    <h2 class='text-center'>Carreras</h2>
+                </div>
+            </div>
+
+            <?php include('../components/whatsapp.php') ?>
+            
 
             <!-- Main view -->
 
@@ -117,6 +122,8 @@ include('../components/headermodules.php');
             </section>
 
         </main>
+
+    <?php include('../components/footer.php') ?>
 
     <?php }else{ include('../components/accessdenied.php'); } ?>
 
