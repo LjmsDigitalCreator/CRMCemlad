@@ -1,16 +1,18 @@
 <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Cemlad CRM</title>
-        <link rel="stylesheet" href="../CRMCemlad/public/css/style/normalize.css">
-        <link rel="stylesheet" href="../CRMCemlad/public/css/style/general.css">
-        <link rel="stylesheet" href="../CRMCemlad/public/css/style/index.css">
-        <link rel="stylesheet" href="../CRMCemlad/public/css/layout/index-layout.css">
-        <link rel="stylesheet" href="../CRMCemlad/public/css/layout/general-layout.css">
-    </head>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cemlad CRM</title>
+    <link rel="stylesheet" href="../CRMCemlad/public/css/style/normalize.css">
+    <link rel="stylesheet" href="../CRMCemlad/public/css/style/general.css">
+    <link rel="stylesheet" href="../CRMCemlad/public/css/style/index.css">
+    <link rel="stylesheet" href="../CRMCemlad/public/css/layout/index-layout.css">
+    <link rel="stylesheet" href="../CRMCemlad/public/css/layout/general-layout.css">
+</head>
+
 <body>
     <nav>
         <img class="icon" src="../CRMCemlad/public/img/logo-cemlad.jpeg" alt="Logo del Cemlad">
@@ -37,16 +39,23 @@
                 <button class="btn-form unit3" type="submit">Ingresar</button>
             </form>
 
-            
+
         </section>
-        
-        <?php if($_GET['failed'] == 1){ ?>
-            <div class="grid">
-                <div class="error-card justify-center unit2">
-                    <p class="text-center text-white">Usuario o clave incorrectos</p>
+
+        <?php
+        if (isset($_GET['failed'])) {
+            if ($_GET['failed'] == 1) {
+        ?>
+                <div class="grid">
+                    <div class="error-card justify-center unit2">
+                        <p class="text-center text-white">Usuario o clave incorrectos</p>
+                    </div>
                 </div>
-            </div>
-        <?php } ?>
+        <?php
+            }
+        }
+
+        ?>
 
         <footer class="footer unit2">
             <div>
@@ -57,4 +66,5 @@
     </main>
 
 </body>
+
 </html>
