@@ -1,6 +1,6 @@
 <?php
 
-function queryDeleteClient($id, $rol){
+function queryDelete($id, $rol){
 
     include('connection.php');
 

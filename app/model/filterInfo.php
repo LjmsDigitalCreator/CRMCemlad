@@ -59,4 +59,39 @@ function queryFilterClient($nameLastName, $email, $phone, $career, $rol){
     return $data;
 }
 
+function queryFilterFile($nameLastName, $type){
+
+    include('connection.php');
+
+    $sql = " SELECT
+        ID_USER,
+        NAME,
+        DIR,
+        TYPE
+    FROM FILES
+    WHERE TYPE = '$type'
+    ";
+    
+    if(isset($nameLastName)){
+        $sql .= " AND (NAME LIKE '%$nameLastName%') ";
+    }
+
+    $query = $mysqli->query($sql);
+
+    $data = array();
+
+    while ($info = $query->fetch_object()) {
+        array_push($data, [
+            'ID_USER'=>$info->ID_USER,
+            'NAME'=>$info->NAME,
+            'DIR'=>$info->DIR,
+            'TYPE'=>$info->TYPE
+        ]);
+    }
+
+    $mysqli->close();
+
+    return $data;
+}
+
 ?>

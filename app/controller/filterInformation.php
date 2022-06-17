@@ -10,9 +10,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $phone = $_POST['phone'];
     $career = $_POST['career'];
     
-    
     if($rol == 'prospect' || $rol == 'student'){
         echo json_encode(queryFilterClient($nameLastName, $email, $phone, $career, $rol));
+    }else if($rol == 'contract' || $rol == 'project'){
+        echo json_encode(queryFilterFile($nameLastName, $rol));
     }
 
 }

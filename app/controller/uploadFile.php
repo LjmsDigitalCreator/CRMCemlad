@@ -11,9 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         $fileTmpPath = $_FILES['fileUpload']['tmp_name'];
         $nameFile = $_FILES['fileUpload']['name'];
-        $fileSize = $_FILES['fileUpload']['size'];
-        $fileType = $_FILES['fileUpload']['type'];
-        $fileError = $_FILES['fileUpload']['error'];
+        
         $fileNameCmps = explode(".", $nameFile);
         $fileExtension = strtolower(end($fileNameCmps));
 
@@ -25,21 +23,42 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         if (in_array($fileExtension, $allowedfileExtensions)) {
             $uploadFileDir = $_SERVER['DOCUMENT_ROOT'] . "/CRMCEMLAD/public/upload/";
-            $destinyPath = $uploadFileDir . $nameFile;
+            $destinyPath = $uploadFileDir . $newFileName;
 
             if (move_uploaded_file($fileTmpPath, $destinyPath)) {
-                if (registerUploadedFile($_SESSION["id"], $fileName, $uploadFileDir, $_POST["type"])) {
-                    echo "file uploaded successfully";
+                if (registerUploadedFile($_SESSION["id"], $newFileName, $destinyPath, $_POST["type"])) {
+                    if($_SESSION['rol'] == 'root'){
+                        if($_POST["type"] == "project"){
+                            header('Location: ../view/amodules.php?module=Gestión de proyectos&rol=project');
+                        }else{
+                            header('Location: ../view/amodules.php?module=Gestión de contratos&rol=contract');
+                        }
+                    }else if($_SESSION['rol'] == 'student'){
+                        header('Location: ../view/smodules.php');
+                    }
+                }else{
+                    if($_SESSION['rol'] == 'root'){
+                        if($_POST["type"] == "project"){
+                            header('Location: ../view/amodules.php?module=Gestión de proyectos&rol=project');
+                        }else{
+                            header('Location: ../view/amodules.php?module=Gestión de contratos&rol=contract');
+                        }
+                    }else if($_SESSION['rol'] == 'student'){
+                        header('Location: ../view/smodules.php');
+                    }
                 }
             } else {
-
-                echo "<h1>" . $message . "</h1>";
+                if($_SESSION['rol'] == 'root'){
+                    if($_POST["type"] == "project"){
+                        header('Location: ../view/amodules.php?module=Gestión de proyectos&rol=project');
+                    }else{
+                        header('Location: ../view/amodules.php?module=Gestión de contratos&rol=contract');
+                    }
+                }else if($_SESSION['rol'] == 'student'){
+                    header('Location: ../view/smodules.php');
+                }
             }
         }
-
-        // if($_SESSION['rol'] == 'root'){
-        //     $result ? header('Location: ../view/awelcome.php') : header('Location: ../../index.php?failed=1');
-        // }
 
     }
 }
