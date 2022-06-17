@@ -29,6 +29,7 @@ include('../components/headermodules.php');
                         <input name="fileName" class="inputs" type="text" required>
                     </div>
 
+                    <input type="text" hidden value="project" name="type">
                     <div class="input-form unit2">
                         <label class="login-text text-standar" for="">Archivo</label>
                         <input name="fileUpload" class="inputs" type="file" required>
