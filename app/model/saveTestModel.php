@@ -1,13 +1,14 @@
 <?php
 
-function querySaveTest($idUser, $values){
+function querySaveTest($idUser, $values, $valuesNumeric){
 
     include('connection.php');
 
     $sql = "INSERT INTO TEST(
         ID_USER,
         ID_QUESTION,
-        ANSWER
+        ANSWER,
+        VALUE
         ) VALUES"
     ;
 
@@ -17,13 +18,15 @@ function querySaveTest($idUser, $values){
             $sql .= "(
                 $idUser,
                 $j,
-                '".$values[$i]."'
+                '".$values[$i]."',
+                ".$valuesNumeric[$i]."
             )";
         }else{
             $sql .= "(
                 $idUser,
                 $j,
-                '".$values[$i]."'
+                '".$values[$i]."',
+                ".$valuesNumeric[$i]."
             ),";
         }
     }

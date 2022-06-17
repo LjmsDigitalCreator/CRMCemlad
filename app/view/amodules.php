@@ -31,10 +31,10 @@
                     $classNav = "nav-small";
                 }else if($rol == 'contract'){
                     $class = "bg-contract";
-                    $classNav = "nav-tree";
+                    $classNav = "nav";
                 }else if($rol == 'project'){
                     $class = "bg-project";
-                    $classNav = "nav-tree";
+                    $classNav = "nav";
                 }
 
                 echo "
@@ -64,6 +64,13 @@
                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-file-arrow-up" viewBox="0 0 16 16">
                             <path d="M8 11a.5.5 0 0 0 .5-.5V6.707l1.146 1.147a.5.5 0 0 0 .708-.708l-2-2a.5.5 0 0 0-.708 0l-2 2a.5.5 0 1 0 .708.708L7.5 6.707V10.5a.5.5 0 0 0 .5.5z"/>
                             <path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"/>
+                        </svg>
+                    </div>
+
+                    <div id="chartTrigger" class="grid justify-center text-white" onclick="BringInformation();">
+                        <p>Gra&#769;fica</p>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-bar-chart-line" viewBox="0 0 16 16">
+                            <path d="M11 2a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v12h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1v-3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3h1V7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7h1V2zm1 12h2V2h-2v12zm-3 0V7H7v7h2zm-5 0v-3H2v3h2z"/>
                         </svg>
                     </div>
                     <?php } ?>
@@ -133,6 +140,16 @@
                 <div class="card-content" id="information-card"></div>
             </section>
 
+            <!-- Form chart -->
+
+            <section class="content unit" id="chart">
+                <h2 class="text-center">Gra&#769;ficas</h2>
+                <?php for($i = 0; $i < 20; $i++){ 
+                    echo "<h2 class='text-center unit'>Pregunta ". ($i + 1) ."</h2>";
+                    echo "<canvas id='myChart$i' width='90%' height='90%'></canvas>";
+                }?>
+            </section>
+
             <!-- Form view -->
 
             <section class="content unit" id="form">
@@ -186,6 +203,7 @@
         <script src="../../public/js/functions/crudInformation.js"></script>
         <script src="../../public/js/functions/filterInformation.js"></script>
         <script src="../../public/js/functions/showModalClient.js"></script>
+        <script src="../../public/js/functions/charts.js"></script>
         <?php
             echo '
                 <script>

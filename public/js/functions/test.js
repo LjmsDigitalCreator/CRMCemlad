@@ -4,6 +4,7 @@ btnTest.addEventListener('click', ()=>{
 
     let idUser = document.getElementById('idUser');
     let values = [];
+    let valuesNumeric = [];
 
     for(let i = 0; i < 20; i++){
         let radio = document.getElementsByName(`group${i}`);
@@ -12,6 +13,7 @@ btnTest.addEventListener('click', ()=>{
             if(radio[j].checked){
                 let label = document.getElementById(`answer${j}question${i}`)
                 values.push(label.textContent);
+                valuesNumeric.push((j + 1));
             }
         }
     }
@@ -23,6 +25,7 @@ btnTest.addEventListener('click', ()=>{
             data: {
                 idUser: idUser.value,
                 values: values,
+                valuesNumeric: valuesNumeric,
             },
             async: true,
             success: function (data) {

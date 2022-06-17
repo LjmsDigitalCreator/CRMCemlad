@@ -20,6 +20,13 @@ let formTitleProject = document.getElementById('form-title-project');
 let btnForm = document.getElementById('btn-form');
 let btnFormProject = document.getElementById('btn-form-project');
 
+let chart = document.getElementById('chart');
+let chartTrigger = document.getElementById('chartTrigger');
+
+if(chart != null){
+    chart.style.display = 'none';
+}
+
 filter.style.display = 'none';
 form.style.display = 'none';
 formProject.style.display = 'none';
@@ -29,6 +36,9 @@ list.addEventListener('click', ()=>{
     form.style.display = 'none';
     formProject.style.display = 'none';
     informationList.style.display = 'block';
+    if(chart != null){
+        chart.style.display = 'none';
+    }
 });
 
 if(create != null){
@@ -47,6 +57,10 @@ if(create != null){
             formTitleProject.style.display = 'none';
             formTitle.innerHTML = 'Registrar';
             btnForm.innerHTML = 'Registrar';
+        }
+
+        if(chart != null){
+            chart.style.display = 'none';
         }
         
         informationList.style.display = 'none';
@@ -70,15 +84,32 @@ if(update != null){
             formTitle.innerHTML = 'Actualizar';
             btnForm.innerHTML = 'Actualizar';
         }
+
+        if(chart != null){
+            chart.style.display = 'none';
+        }
     
         informationList.style.display = 'none';
     });
 }
 
+if(chartTrigger != null){
+    chartTrigger.addEventListener('click', ()=>{
+        chart.style.display = 'grid';
+        filter.style.display = 'none';
+        formProject.style.display = 'none';
+        form.style.display = 'none';
+        formTitle.style.display = 'none';
+        informationList.style.display = 'none';
+    });
+}
 
 filterOption.addEventListener('click', ()=>{
     filter.style.display = 'block';
     form.style.display = 'none';
     formProject.style.display = 'none';
     informationList.style.display = 'block';
+    if(chart != null){
+        chart.style.display = 'none';
+    }
 });
