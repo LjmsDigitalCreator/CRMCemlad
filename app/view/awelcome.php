@@ -16,6 +16,9 @@ include('../components/headermodules.php')
                 <p class="text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio, beatae nisi. Modi cum, aspernatur laudantium, distinctio possimus sapiente deserunt ea ab, libero nulla quasi voluptate. Necessitatibus modi quod quasi! Repudiandae.</p>
             </section>
         </main>
+
+    <?php include('../components/footer.php') ?>
+
     <?php }else{ include('../components/accessdenied.php'); } ?>
 
 </body>

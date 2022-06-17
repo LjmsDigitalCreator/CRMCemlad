@@ -16,7 +16,7 @@ btnTest.addEventListener('click', ()=>{
         }
     }
 
-    if(values.length > 20){
+    if(values.length >= 20){
         $.ajax({
             type: "POST",
             url: "../../app/controller/saveTest.php",
@@ -26,16 +26,11 @@ btnTest.addEventListener('click', ()=>{
             },
             async: true,
             success: function (data) {
-                console.log(data);
-                modal.style.display = 'none';
-                divModal.style.display = 'none';
-                divModal.classList.remove = 'modalDiv';
-    
                 if(data){
-                    ModalSuccessful();
-                    BringInformation();
+                    alert('Formulario enviado');
+                    location.reload();
                 }else{
-                    ModalFailed();    
+                    alert('¡Ups! algo ocurrió');
                 }
     
             },

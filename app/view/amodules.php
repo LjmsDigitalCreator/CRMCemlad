@@ -12,6 +12,8 @@
 
                 $module = 'Mo&#769;dulo';
                 $rol = null;
+                $class = "null";
+                $classNav = "null";
                 
                 if(isset($_GET['module'])){
                     $module = $_GET['module'];
@@ -21,11 +23,32 @@
                     $rol = $_GET['rol'];
                 }
 
-                echo '<h2 class="text-center">'. $module .'</h2>';
+                if($rol == 'student'){
+                    $class = "bg-test";
+                    $classNav = "nav-small";
+                }else if($rol == 'prospect'){
+                    $class = "bg-client";
+                    $classNav = "nav-small";
+                }else if($rol == 'contract'){
+                    $class = "bg-contract";
+                    $classNav = "nav-tree";
+                }else if($rol == 'project'){
+                    $class = "bg-project";
+                    $classNav = "nav-tree";
+                }
+
+                echo "
+                <div class='$class'>
+                    <div class='bar-t'>
+                        <h2 class='text-center'>$module</h2>
+                    </div>
+                </div>
+                ";
                 echo '<input id="rol" type="hidden" value="'. $rol .'">';
             ?>
+
             <div class="grid">
-                <nav class="nav-small justify-center nav-option">
+                <?php echo "<nav class='$classNav justify-center nav-option'>"; ?>
                     <div id="list" class="grid justify-center text-white" onclick="BringInformation();">
                         <p>Listado</p>
                         <svg class="justify-center" xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-list-task" viewBox="0 0 16 16">
@@ -34,6 +57,17 @@
                             <path fill-rule="evenodd" d="M1.5 7a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H2a.5.5 0 0 1-.5-.5V7zM2 7h1v1H2V7zm0 3.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5H2zm1 .5H2v1h1v-1z"/>
                         </svg>
                     </div>
+                    
+                    <?php if($rol == 'project' || $rol == 'contract'){ ?>
+                    <div id="create" class="grid justify-center text-white" onclick="BringInformation();">
+                        <p>Subir</p>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-file-arrow-up" viewBox="0 0 16 16">
+                            <path d="M8 11a.5.5 0 0 0 .5-.5V6.707l1.146 1.147a.5.5 0 0 0 .708-.708l-2-2a.5.5 0 0 0-.708 0l-2 2a.5.5 0 1 0 .708.708L7.5 6.707V10.5a.5.5 0 0 0 .5.5z"/>
+                            <path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"/>
+                        </svg>
+                    </div>
+                    <?php } ?>
+
                     <div id="filterOption" class="grid justify-center text-white">
                         <p>Buscar</p>
                         <svg class="justify-center" xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
@@ -133,11 +167,15 @@
                         <input name="fileUpload" class="inputs" type="file" required>
                     </div>
 
+                    <?php echo"<input name='type' type='hideen' value='$rol'>"; ?>
+
                     <button class="btn-form items-columns unit2" id="btn-form-project">Acción formulario</button>
                 </form>
             </section>
     
         </main>
+
+        <?php include('../components/footer.php') ?>
         
         <!-- Modal -->
 

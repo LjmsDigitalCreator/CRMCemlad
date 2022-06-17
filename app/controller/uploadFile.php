@@ -4,8 +4,8 @@ session_start();
 
 include('../model/uploadFileModel.php');
 
-if($_SERVER['REQUEST_METHOD'] == 'POST'){
-    if(isset($_POST['fileName']) && isset($_FILES['fileUpload'])){
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    if (isset($_POST['fileName']) && isset($_FILES['fileUpload'])) {
 
         $fileName = $_POST['fileName'];
 
@@ -22,26 +22,24 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         $newFileName = str_replace(" ", "", $nameFile  . '.' . $fileExtension);
 
         $allowedfileExtensions = array('zip', 'txt', 'xls', 'doc', 'docx', 'pdf', 'odt', 'rar');
-        
+
         if (in_array($fileExtension, $allowedfileExtensions)) {
             $uploadFileDir = $_SERVER['DOCUMENT_ROOT'] . "/CRMCEMLAD/public/upload/";
             $destinyPath = $uploadFileDir . $nameFile;
 
+            if (move_uploaded_file($fileTmpPath, $destinyPath)) {
+                if (registerUploadedFile($_SESSION["id"], $fileName, $uploadFileDir, $_POST["type"])) {
+                    echo "file uploaded successfully";
+                }
+            } else {
 
-            echo $_POST["type"];
-
-            if(move_uploaded_file($fileTmpPath, $destinyPath)){
-
-                //subimos a mysql
-            }else{
-
-                echo "<h1>". $message ."</h1>";
+                echo "<h1>" . $message . "</h1>";
             }
         }
 
         // if($_SESSION['rol'] == 'root'){
         //     $result ? header('Location: ../view/awelcome.php') : header('Location: ../../index.php?failed=1');
         // }
-        
+
     }
 }

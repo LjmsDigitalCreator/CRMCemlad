@@ -5,7 +5,7 @@
 }
 
 .option-test{
-    width: 50%;
+    width: 80%;
 }
 
 .div-options{
@@ -23,6 +23,12 @@
 .nav-small{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 100%;
+}
+
+.nav-tree{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     grid-template-rows: 100%;
 }
 

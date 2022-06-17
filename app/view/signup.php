@@ -73,12 +73,14 @@
                 <button class="btn-form items-columns unit3">Registrar</button>
             </form>
         </section>
-        <footer class="footer unit3">
+        <footer class="footer2 unit3">
             <div>
                 <a class="text-standar" href="../../index.php"><small>Ya tengo una cuenta</small></a>
             </div>
         </footer>
     </main>
+
+    <?php include('../components/footer.php') ?>
 
 </body>
 </html>
