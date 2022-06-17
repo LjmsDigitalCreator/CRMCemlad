@@ -31,6 +31,7 @@
     --text-gray: #6A6A6A;
 
     /* Spacing */
+    --unit1: 12px;
     --unit: 16px;
     --unit2: 32px;
     --unit3: 64px;
@@ -209,6 +210,10 @@ nav{
     margin-top: var(--unit);
 }
 
+.unit1{
+    margin-top: var(--unit1);
+}
+
 .unit2{
     margin-top: var(--unit2);
 }
@@ -314,19 +319,28 @@ nav{
     width: 320px;
 }
 
-.whatsapp{
+.whatsapp, .signout{
     width: 60px;
     height: 60px;
 
-    background-color: var(--positive);
     border-radius: 60px;
 
     position: sticky;
 
-    left: 100%;
     top: 90%;
-
 }
+
+.whatsapp{
+    left: 100%;
+    background-color: var(--positive);
+}
+
+.signout{
+    right: 100%;
+    background-color: var(--main-blue);
+    border: 3px solid var(--white);
+}
+
 
 .button-option{
     

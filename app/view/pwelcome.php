@@ -116,7 +116,7 @@ include('../components/headermodules.php');
             </section>
         </main>
 
-        <?php include('app/components/footer.php') ?>
+        <?php include('../components/footer.php') ?>
         
         <!-- Modal -->
     

@@ -167,7 +167,7 @@
                         <input name="fileUpload" class="inputs" type="file" required>
                     </div>
 
-                    <?php echo"<input name='type' type='hideen' value='$rol'>"; ?>
+                    <?php echo"<input name='type' type='hidden' value='$rol'>"; ?>
 
                     <button class="btn-form items-columns unit2" id="btn-form-project">Acción formulario</button>
                 </form>
