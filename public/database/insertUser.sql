@@ -1,0 +1,52 @@
+INSERT INTO USER(
+    ID_CAREER,
+    USER,
+    PASSWORD,
+    NAME,
+    SECOND_NAME,
+    LAST_NAME,
+    SECOND_LAST_NAME,
+    EMAIL,
+    PHONE,
+    ALTER_PHONE,
+    ROL
+)VALUES(
+    '1',
+    'lry',
+    '827ccb0eea8a706c4c34a16891f84e7b',
+    'Larry',
+    'Josue',
+    'Mijares',
+    'Silva',
+    'ljmsdigitalcreator@gmail.com',
+    '0979546842',
+    '0979546842',
+    'root'
+),
+(
+    '2',
+    'larry',
+    '827ccb0eea8a706c4c34a16891f84e7b',
+    'Larry',
+    'Josue',
+    'Mijares',
+    'Silva',
+    'ljmsdigitalcreator@gmail.com',
+    '0979546842',
+    '0979546842',
+    'student'
+),
+(
+    '1',
+    'lucas',
+    '827ccb0eea8a706c4c34a16891f84e7b',
+    'Lucas',
+    'Gabriel',
+    'Medina',
+    'Torres',
+    'lucas@gmail.com',
+    '0979546842',
+    '0979546842',
+    'prospect'
+)
+;
