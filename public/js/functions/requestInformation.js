@@ -34,6 +34,8 @@ function BringInformation(){
                     title = 'Projecto';
                 }
 
+                let dir = info[i]['DIR'].replace('');
+
                 if(module == 'contract' || module == 'project'){
                     divs += `
                         <div class='grid-client text-white'>

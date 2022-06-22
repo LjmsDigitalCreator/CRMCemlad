@@ -146,7 +146,7 @@
                 <h2 class="text-center">Gra&#769;ficas</h2>
                 <?php for($i = 0; $i < 20; $i++){ 
                     echo "<h2 class='text-center unit'>Pregunta ". ($i + 1) ."</h2>";
-                    echo "<canvas id='myChart$i' width='90%' height='90%'></canvas>";
+                    echo "<canvas id='myChart$i' width='90%' height='50%'></canvas>";
                 }?>
             </section>
 

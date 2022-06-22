@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         $name = explode('/', $fileTmpPath);
 
-        $newFileName = str_replace(" ", "", $nameFile  . '.' . $fileExtension);
+        $newFileName = str_replace(" ", "", $nameFile);
 
         $allowedfileExtensions = array('zip', 'txt', 'xls', 'doc', 'docx', 'pdf', 'odt', 'rar');
 
